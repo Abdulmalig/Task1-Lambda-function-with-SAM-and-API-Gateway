@@ -1,3 +1,5 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
 Resources:
   GenerateImageFunction:
     Type: AWS::Serverless::Function
@@ -14,8 +16,7 @@ Resources:
       Environment:
         Variables:
           S3_BUCKET_NAME: "pgr301-couch-explorers"
-          MODEL_ID: "amazon.titan-image-generator-v1" 
-          CANDIDATE_ID: "12345" # Replace with your candidate ID
+          MODEL_ID: "amazon.titan-image-generator-v1"
       Events:
         ImageAPI:
           Type: Api
