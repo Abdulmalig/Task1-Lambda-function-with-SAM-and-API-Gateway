@@ -1,0 +1,23 @@
+Resources:
+  GenerateImageFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello_world/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+      MemorySize: 128
+      Timeout: 50
+      Policies:
+        - S3WritePolicy:
+            BucketName: pgr301-couch-explorers
+        - AWSLambdaBasicExecutionRole
+      Environment:
+        Variables:
+          S3_BUCKET_NAME: "pgr301-couch-explorers"
+          CANDIDATE_ID: "12345" # Replace with your candidate ID
+      Events:
+        ImageAPI:
+          Type: Api
+          Properties:
+            Path: /generate-image
+            Method: post
