@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Resources:
-  GenerateImageFunctionAbdulmaliks:
+  GenerateImageFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: hello_world/
@@ -14,9 +14,8 @@ Resources:
             BucketName: pgr301-couch-explorers
         - AWSLambdaBasicExecutionRole
       Environment:
-        Variables:
-          S3_BUCKET_NAME: "pgr301-couch-explorers"
-          MODEL_ID: "amazon.titan-image-generator-v1"
+        S3_BUCKET_NAME: "pgr301-couch-explorers"
+        MODEL_ID: "amazon.titan-image-generator-v1"
       Events:
         ImageAPI:
           Type: Api
