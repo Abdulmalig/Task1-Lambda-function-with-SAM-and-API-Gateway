@@ -20,6 +20,7 @@ Resources:
         Variables:
           S3_BUCKET_NAME: "pgr301-couch-explorers"
           MODEL_ID: "amazon.titan-image-generator-v1"
+          CANDIDATE_ID: "10"
       Events:
         ImageAPI:
           Type: Api
